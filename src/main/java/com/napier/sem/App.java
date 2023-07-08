@@ -96,7 +96,7 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT emp_no, first_name, last_name, title, salary, dept_no " +
+                    "SELECT employess.emp_no, employess.first_name, employess.last_name, titles.title, salaries.salary, dept_emp.dept_no " +
                             "FROM employees " +
                             "JOIN titles ON employees.emp_no = titles.emp_no " +
                             "JOIN salaries ON employees.emp_no = salaries.emp_no " +
