@@ -96,12 +96,12 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT emp_no, first_name, last_name " +
+                    "SELECT emp_no, first_name, last_name, title, salary, dept_no " +
                             "FROM employees " +
                             "JOIN titles ON employees.emp_no = titles.emp_no " +
                             "JOIN salaries ON employees.emp_no = salaries.emp_no " +
                             "JOIN dept_emp ON employees.emp_no = dept_emp.emp_no " +
-                            "WHERE employees.emp_no = " + ID + " AND dept_emp.to_date <= '9999-01-01'";
+                            "WHERE employees.emp_no = " + ID + " AND dept_emp.to_date >= '9999-01-01'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
