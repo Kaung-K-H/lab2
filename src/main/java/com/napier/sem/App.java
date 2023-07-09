@@ -96,15 +96,17 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT dept_manager.emp_no, employees.emp_no, employees.first_name, employees.last_name, " +
-                            "titles.title, salaries.salary, dept_emp.dept_no, departments.dept_name " +
+                    "SELECT dept_manager.emp_no as manager_emp_id, employees.first_name, " +
+                            "employees.last_name, titles.title, salaries.salary, " +
+                            "departments.dept_name, titles.from_date, titles.to_date " +
                             "FROM dept_emp " +
-                            "JOIN employees ON employees.emp_no = dept_emp.emp_no" +
-                            "JOIN titles ON titles.emp_no = dept_emp.emp_no " +
-                            "JOIN salaries ON salaries.emp_no = dept_emp.emp_no " +
-                            "JOIN departments ON departments.dept_no = dept_emp.dept_no" +
-                            "JOIN dept_manager ON dept_manager.emp_no = dept_emp.emp_no" +
-                            "WHERE titles.to_date  = '9999-01-01' ORDER BY titles.from_date DESC" ;
+                            "INNER JOIN employees ON employees.emp_no = dept_emp.emp_no " +
+                            "INNER JOIN departments ON dept_emp.dept_no = departments.dept_no " +
+                            "INNER JOIN salaries ON employees.emp_no = salaries.emp_no " +
+                            "INNER JOIN titles ON employees.emp_no = titles.emp_no " +
+                            "INNER JOIN dept_manager ON employees.emp_no = dept_manager.emp_no " +
+                            "WHERE titles.to_date = '9999-01-01'" +
+                            "ORDER BY titles.from_date DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
