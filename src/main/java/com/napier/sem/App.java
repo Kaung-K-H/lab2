@@ -100,11 +100,11 @@ public class App
                             "employees.last_name, titles.title, salaries.salary,"+
                             "departments.dept_name, titles.from_date, titles.to_date"+
                             "FROM dept_emp"+
-                            "INNER JOIN employees ON employees.emp_no = dept_emp.emp_no "+
-                            "INNER JOIN departments ON departments.dept_no = dept_emp.dept_no "+
-                            "INNER JOIN salaries ON salaries.emp_no = employees.emp_no "+
-                            "INNER JOIN titles ON titles.emp_no = employees.emp_no"+
-                            "INNER JOIN dept_manager ON dept_manager.emp_no = employees.emp_no"+
+                            "JOIN employees ON employees.emp_no = dept_emp.emp_no "+
+                            "JOIN departments ON departments.dept_no = dept_emp.dept_no "+
+                            "JOIN salaries ON salaries.emp_no = employees.emp_no "+
+                            "JOIN titles ON titles.emp_no = employees.emp_no"+
+                            "JOIN dept_manager ON dept_manager.emp_no = employees.emp_no"+
                             "WHERE titles.to_date = '9999-01-01'"+
                             "ORDER BY titles.from_date DESC ";
             // Execute SQL statement
