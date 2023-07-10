@@ -97,7 +97,7 @@ public class App
             // Create string for SQL statement
             String strSelect =
                     "SELECT dept_manager.emp_no as manager_emp_id, employees.first_name,"+
-                            "employees.last_name, titles.title, salaries.salary,"+
+                            "employees.last_name, employees.emp_no, titles.title, salaries.salary,"+
                             "departments.dept_name, titles.from_date, titles.to_date"+
                             "FROM dept_emp"+
                             "JOIN employees ON employees.emp_no = dept_emp.emp_no "+
@@ -143,8 +143,8 @@ public class App
                             + emp.last_name + "\n"
                             + emp.title + "\n"
                             + "Salary:" + emp.salary + "\n"
-                            + emp.dept_name + "\n"
-                            + "Manager: " + emp.manager + "\n");
+                            + emp.dept_name + "\n");
+                            //+ "Manager: " + emp.manager + "\n");
         }
     }
 
