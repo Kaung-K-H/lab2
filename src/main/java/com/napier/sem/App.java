@@ -1,22 +1,28 @@
 package com.napier.sem;
 
 import java.sql.*;
-
+import java.util.*;
 public class App
 {
     public static void main(String[] args)
     {
+        Employee e = new Employee();
         // Create new Application
         App a = new App();
 
         // Connect to database
         a.connect();
 
+        // Extract employee salary information
+        ArrayList<Employee> employees = e.getAllSalaries(a.con);
+
+        // Test the size of the returned data - should be 240124
+        System.out.println(employees.size());
         // Get Employee
-        Employee emp = a.getEmployee(255530);
+        //Employee emp = a.getEmployee(255530);
 
         // Display results
-        a.displayEmployee(emp);
+        //a.displayEmployee(emp);
 
         // Disconnect from database
         a.disconnect();
