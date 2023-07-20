@@ -48,7 +48,7 @@ public class Employee
      * Gets all the current employees and salaries.
      * @return A list of all employees and salaries, or null if there is an error.
      */
-    public ArrayList<Employee> getAllSalaries(Connection con)
+    public ArrayList<Employee> getAllSalaries(Connection con, int limit)
     {
         try
         {
@@ -59,7 +59,8 @@ public class Employee
                     "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
                             + "FROM employees, salaries "
                             + "WHERE employees.emp_no = salaries.emp_no AND salaries.to_date = '9999-01-01' "
-                            + "ORDER BY employees.emp_no ASC";
+                            + "ORDER BY employees.emp_no ASC "
+                            + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
