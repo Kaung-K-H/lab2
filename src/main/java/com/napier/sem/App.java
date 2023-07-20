@@ -7,9 +7,11 @@ public class App
     public static void main(String[] args)
 
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the amount of employees to display");
-        int limit = sc.nextInt();
+        //Scanner sc = new Scanner(System.in);
+        //System.out.println("Enter the amount of employees to display");
+        //int limit = sc.nextInt();
+
+        int limit = 2;
 
 
         Employee e = new Employee();
