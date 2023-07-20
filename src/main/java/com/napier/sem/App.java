@@ -67,7 +67,7 @@ public class App
                 // Wait a bit for db to start
                 Thread.sleep(delay);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/db?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://employees:3306/db?useSSL=false", "root", "example");
 
                 //con = DriverManager.getConnection("jdbc:mysql://" + location
                 //                + "/employees?allowPublicKeyRetrieval=true&useSSL=false",
